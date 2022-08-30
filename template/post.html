@@ -1,0 +1,27 @@
+{% extends 'base_blog.html' %}
+{% block content %}
+  <!-- Page Header -->
+  <header class="masthead">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>{{ post.title|safe }}</h1>
+            <span class="subheading">{{ post.subtitle|safe }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            {{ post.content|safe }}
+          </div>
+        </div>
+      </div>
+    </article>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base_blog.html' %}
+{% block content %}
+  <!-- Page Header -->
+  <header class="masthead">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Delete Post</h1>
+            <span class="subheading">Delete one or multiple posts from here.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+        {% for post in posts %}
+          <div class="post-preview">
+            <a href="{{ url_for('post', post_id=post.id) }}">
+              <h2 class="post-title">
+                {{ post.title }}
+              </h2>
+              <h3 class="post-subtitle">
+                {{ post.subtitle }}
+              </h3>
+            </a>
+            <p class="post-meta">Posted by {{ post.author }} on {{ post.date_posted.strftime('%B %d, %Y') }}</p>
+          </div>
+          <form name="deleteForm" id="deleteForm" method="POST" action="{{ url_for('delete') }}">
+            <input type="hidden" name="post_id" value="{{post.id}}">
+            <input type="submit" value="Delete" class="btn btn-secondary">
+          </form>
+          {% endfor %}
+          <hr>
+        </div>
+      </div>
+    </div>
+{% endblock %}
