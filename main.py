@@ -34,7 +34,7 @@ def register():
             db.session.commit()
             return redirect(url_for('login'))
         except:
-            return render_template('index.html', message="User Already Exists")
+            return render_template('register.html', message="User Already Exists")
     else:
         return render_template('register.html')
 
